@@ -140,7 +140,7 @@ public class FindTransactionsStepDefs {
     public void resultsTableShouldOnlyShowDescriptionsContaining(String description) {
         BrowserUtils.waitForVisibility(accountActivityPage.transactionTable,5);
         for (WebElement element: accountActivityPage.foundDescriptions) {
-            System.out.println("element.getText(): "+element.getText());
+            //System.out.println("element.getText(): "+element.getText());
             Assert.assertTrue("verify, the results table should include \""+description+"\"",
                     element.getText().contains(description));
         }
