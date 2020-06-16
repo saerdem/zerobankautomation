@@ -130,6 +130,7 @@ public class FindTransactionsStepDefs {
 
     @When("the user enters description {string}")
     public void theUserEntersDescription(String description) {
+        BrowserUtils.waitForVisibility(accountActivityPage.findDescription,5);
         accountActivityPage.findDescription.clear();
         accountActivityPage.findDescription.sendKeys(description);
         BrowserUtils.waitFor(1);
@@ -137,10 +138,11 @@ public class FindTransactionsStepDefs {
 
     @Then("results table should only show descriptions containing {string}")
     public void resultsTableShouldOnlyShowDescriptionsContaining(String description) {
-
+        BrowserUtils.waitForVisibility(accountActivityPage.transactionTable,5);
         for (WebElement element: accountActivityPage.foundDescriptions) {
-            Assert.assertTrue("verify the results table should include \""+description+"\"",
-                    description.contains(element.getText()));
+            System.out.println("element.getText(): "+element.getText());
+            Assert.assertTrue("verify, the results table should include \""+description+"\"",
+                    element.getText().contains(description));
         }
         System.out.println("the results table only show descriptions containing \""+description+"\"");
     }
