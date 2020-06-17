@@ -48,7 +48,7 @@ public class FindTransactionsStepDefs {
         BrowserUtils.waitForVisibility(accountActivityPage.transactionTable,5);
         Assert.assertTrue("Verify the dates on the table are between the input 2 dates",
                 isDateBetween(fromD,toD,accountActivityPage.foundTransactionsDates));
-        //System.out.println("Dates on the table are between the input 2 dates");
+        System.out.println("Dates on the table are between the input 2 dates");
     }
 
     public boolean isDateBetween(String fromD, String toD, List<WebElement> foundDates) throws ParseException {
@@ -140,7 +140,7 @@ public class FindTransactionsStepDefs {
     public void resultsTableShouldOnlyShowDescriptionsContaining(String description) {
         BrowserUtils.waitForVisibility(accountActivityPage.transactionTable,5);
         for (WebElement element: accountActivityPage.foundDescriptions) {
-            //System.out.println("element.getText(): "+element.getText());
+            System.out.println("element.getText(): "+element.getText());
             Assert.assertTrue("verify, the results table should include \""+description+"\"",
                     element.getText().contains(description));
         }
